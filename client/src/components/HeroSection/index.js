@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import HeroImage from '../../images/dogBG3.jpg'
 import { Modal, Form } from 'react-bootstrap'
 import { Button } from '../ButtonElement'
+import Message from '../../components/Message'
 import { HeroContainer, HeroBg, ImageBg, HeroContent, HeroH1, HeroP, HeroBtnWrapper, QuestionEmpty, QuestionFilled } from './HeroElements';
 
 const HeroSection = ({ handleSubmit, questionRef, contentRef, topicRef, currentUser }) => {
@@ -47,12 +48,13 @@ const HeroSection = ({ handleSubmit, questionRef, contentRef, topicRef, currentU
 
     return (
         <>
+        
             <HeroContainer id="home">
                 <HeroBg>
                     <ImageBg src={HeroImage} />
                 </HeroBg>
                 <HeroContent>
-                    <HeroH1>Project 3</HeroH1>
+                    <HeroH1>PawPals</HeroH1>
                     <HeroP>Helping pet parents one paw at a time</HeroP>
                     <HeroBtnWrapper>
                         <Button to="askquestion" big='true' fontBig='true' primary='true' onMouseEnter={onHover} onMouseLeave={onHover} onClick={handleShow}>
@@ -63,9 +65,10 @@ const HeroSection = ({ handleSubmit, questionRef, contentRef, topicRef, currentU
             </HeroContainer>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Ask the Project 3 community a question!</Modal.Title>
+                    <Modal.Title>Ask the PawPals community a question!</Modal.Title>
                     
                 </Modal.Header>
+                {currentUser ? (
                 <Form onSubmit={handleSubmit}>
                     <Modal.Body>
 
@@ -105,6 +108,9 @@ const HeroSection = ({ handleSubmit, questionRef, contentRef, topicRef, currentU
                         </Button>
                     </Modal.Footer>
                 </Form>
+                ) : (
+                    <Message variant='danger'>You must be logged in to do that</Message>
+                )}
             </Modal>
         </>
     )

@@ -1,7 +1,5 @@
 import React from 'react'
 import './App.css'
-import './components/App.scss'
-import './components/login/style.scss'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Header from './components/Header'

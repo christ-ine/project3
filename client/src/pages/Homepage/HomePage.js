@@ -4,6 +4,7 @@ import HeroSection from '../../components/HeroSection/'
 import AllQuestions from '../../components/AllQuestions.js'
 import API from '../../utils/API'
 // import Question from '../../components/Question/Question'
+import Header from '../../components/Header'
 import Topics from '../../components/Topics/Topics'
 import Search from '../../components/Search/Search'
 import { Redirect } from "react-router-dom"
@@ -84,28 +85,17 @@ const HomePage = () => {
           .catch(err => console.log(err));
       };
 
-      function AlertDismissibleExample() {
-        const [alertShow, setAlertShow] = useState(true);
-      
-        if (alertShow) {
-          return (
-            <Alert variant="danger" onClose={() => setAlertShow(false)} dismissible>
-              You must be logged in to do that.
-            </Alert>
-          );
-        }
-        return <Button onClick={() => setAlertShow(false)}/>
-      }
 
     //   console.log()
 
 
     return (
         <>
+        {/* <Header currentUser={currentUser}/> */}
             <HeroSection currentUser={currentUser} handleSubmit={handleSubmit} questionRef={questionRef} contentRef={contentRef} topicRef={topicRef} />
             {/* <div className="home_container"> */}
             {/* {notLoggedIn && <Redirect to="/login"/>} */}
-            {notLoggedIn && <AlertDismissibleExample />}
+            {/* {notLoggedIn && <AlertDismissibleExample />} */}
             <Container>
                 <Row>
                     <Col  sm={8}>
