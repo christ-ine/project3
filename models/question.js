@@ -18,9 +18,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
 
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
     UserId: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
 
     createdAt: {

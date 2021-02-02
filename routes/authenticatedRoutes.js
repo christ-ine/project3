@@ -18,7 +18,8 @@ router.post('/postQuestion', function(req, res, next) {
         question: req.body.question,
         topic: req.body.topic,
         content: req.body.content,
-        UserId: req.body.UserId
+        UserId: req.body.UserId,
+        userName: req.body.userName
     })
     .then((dbResponse) => res.send("question posted"))
     .catch((err) => res.status(422).json(err));

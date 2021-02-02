@@ -16,6 +16,9 @@ const HomePage = () => {
     const questionList = useSelector(state => state.questionList)
     const { loading, error, questions } = questionList
 
+    const userDetails = useSelector(state => state.userDetails)
+    const { user } = userDetails
+
     console.log(questions)
 
     useEffect(() => {

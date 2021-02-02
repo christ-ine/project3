@@ -5,7 +5,10 @@ import {
     QUESTION_CREATE_REQUEST, 
     QUESTION_CREATE_SUCCESS, 
     QUESTION_CREATE_FAIL, 
-    QUESTION_CREATE_RESET 
+    QUESTION_CREATE_RESET ,
+    QUESTION_DETAILS_REQUEST,
+    QUESTION_DETAILS_SUCCESS,
+    QUESTION_DETAILS_FAIL
 } from "../constants/questionConstants"
 
 export const questionListReducer = (state = {questions: [] }, action) => {
@@ -36,6 +39,19 @@ export const questionCreateReducer = (state =  {}, action) => {
             return { loading: false, error: action.payload}
         case QUESTION_CREATE_RESET:
             return {}
+        default:
+            return state
+    }
+}
+
+export const questionDetailsReducer = (state = {question: { comments: []} }, action) => {
+    switch (action.type) {
+        case QUESTION_DETAILS_REQUEST:
+            return { loading: true, ...state }
+        case QUESTION_DETAILS_SUCCESS:
+            return { loading: false, question: action.payload }
+        case QUESTION_DETAILS_FAIL:
+            return { loading: false, error: action.payload}
         default:
             return state
     }

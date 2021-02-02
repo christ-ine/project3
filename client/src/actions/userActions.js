@@ -6,7 +6,13 @@ import {
     USER_LOGOUT,
     USER_REGISTER_REQUEST,
     USER_REGISTER_SUCCESS,
-    USER_REGISTER_FAIL
+    USER_REGISTER_FAIL,
+    USER_DETAILS_REQUEST,
+    USER_DETAILS_SUCCESS,
+    USER_DETAILS_FAIL,
+    USER_QUESTIONS_REQUEST,
+    USER_QUESTIONS_SUCCESS,
+    USER_QUESTIONS_FAIL
  } from '../constants/userConstants'
 
 export const login = (userName, password) => async (dispatch) => {
@@ -83,6 +89,76 @@ export const register = (userName, email, password, lastName, firstName) => asyn
     } catch (error) {
         dispatch({
             type: USER_REGISTER_FAIL,
+            payload: 
+                error.response && error.response.data.message 
+                ? error.response.data.message 
+                : error.message,
+        })
+    }
+}
+
+export const getUserDetails = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: USER_DETAILS_REQUEST
+        })
+
+        const { userLogin: {userInfo} } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/users/${id}`, 
+            config
+        )
+
+        dispatch({
+            type: USER_DETAILS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: USER_DETAILS_FAIL,
+            payload: 
+                error.response && error.response.data.message 
+                ? error.response.data.message 
+                : error.message,
+        })
+    }
+}
+
+export const getUserQuestions = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: USER_QUESTIONS_REQUEST
+        })
+
+        const { userLogin: {userInfo} } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/questions/UserQuestions//${id}`, 
+            config
+        )
+
+        dispatch({
+            type: USER_QUESTIONS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: USER_QUESTIONS_FAIL,
             payload: 
                 error.response && error.response.data.message 
                 ? error.response.data.message 

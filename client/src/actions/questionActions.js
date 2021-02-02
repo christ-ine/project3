@@ -5,7 +5,10 @@ import {
     QUESTION_LIST_FAIL, 
     QUESTION_CREATE_REQUEST, 
     QUESTION_CREATE_SUCCESS, 
-    QUESTION_CREATE_FAIL 
+    QUESTION_CREATE_FAIL,
+    QUESTION_DETAILS_REQUEST,
+    QUESTION_DETAILS_SUCCESS,
+    QUESTION_DETAILS_FAIL
 } from '../constants/questionConstants'
 
 export const listQuestions = () => async(dispatch) => {
@@ -67,4 +70,26 @@ export const createQuestion = (questionData) => async (dispatch, getState) => {
                 : error.message,
         })
     }
+}
+
+export const listQuestionDetails = (id) => async(dispatch) => {
+    try {
+        dispatch({type: QUESTION_DETAILS_REQUEST})
+
+        const { data } = await axios.get(`/questions/${id}`)
+
+        dispatch({
+            type: QUESTION_DETAILS_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: QUESTION_DETAILS_FAIL,
+            payload: 
+                error.response && error.response.data.message 
+                ? error.response.data.message 
+                : error.message,
+        })
+    }
+
 }
