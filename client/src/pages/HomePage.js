@@ -1,60 +1,44 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
-import Product from '../components/Product'
+import Questions from '../components/Questions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import Paginate from '../components/Paginate'
-import ProductCarousel from '../components/ProductCarousel'
-import Meta from '../components/Meta'
-import { listProducts } from '../actions/productActions'
+import HeroSection from '../components/HeroSection/index'
+import { listQuestions } from '../actions/questionActions'
 
 
-const HomePage = ({ match }) => {
-    const keyword = match.params.keyword
-
-    const pageNumber = match.params.pageNumber || 1 
+const HomePage = () => {
 
     const dispatch = useDispatch()
 
-    const productList = useSelector(state => state.productList)
-    const { loading, error, products, page, pages } = productList
+    const questionList = useSelector(state => state.questionList)
+    const { loading, error, questions } = questionList
+
+    console.log(questions)
 
     useEffect(() => {
-        dispatch(listProducts(keyword, pageNumber))
-    }, [dispatch, keyword, pageNumber])
+        dispatch(listQuestions())
+    }, [dispatch])
 
     return (
         <>
-        <Meta />
-
-        {!keyword ? ( 
-        <ProductCarousel /> 
-        ) : (
-            <Link to='/' className='btn btn-light'>
-                Go Back
-            </Link>
-        )}
-            <h1>Latest Products</h1>
+            <HeroSection />
+        
+            <h1>Latest Posts</h1>
             {loading ? (<Loader />)
             : error ? (
             <Message variant='danger'>{error}</Message>
             ) :(
                 <>
                 <Row>
-                {products.map(product => (
-                    <Col key ={product._id} sm={12} md={6} lg={4} xl={3}>
-                        <Product product={product}/>
+                {questions.map(question => (
+                    <Col key ={question.id} sm={12} md={6} lg={4} xl={3}>
+                        <Questions question={question}/>
                     </Col>
                 ))}
             </Row>
-            <Paginate 
-                pages={pages} 
-                page={page} 
-                keyword={keyword ? keyword : ''}
-            />
             </>
             )}
             

@@ -5,9 +5,13 @@ import {
     userLoginReducer, 
     userRegisterReducer, 
 } from './reducers/userReducers'
+import { questionListReducer, questionCreateReducer } from './reducers/questionReducers'
+
 
 const reducer = combineReducers({
-    userLogin: userLoginReducer,
+    questionList: questionListReducer,
+    questionCreate: questionCreateReducer,
+    userLogin: userLoginReducer, 
     userRegister: userRegisterReducer,
 })
 
