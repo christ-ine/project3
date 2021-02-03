@@ -7,17 +7,20 @@ import {
     userDetailsReducer,
     userQuestionsReducer
 } from './reducers/userReducers'
-import { questionListReducer, questionCreateReducer, questionDetailsReducer } from './reducers/questionReducers'
+import { questionListReducer, questionCreateReducer, questionDetailsReducer, questionCommentCreateReducer } from './reducers/questionReducers'
+import { commentListReducer } from './reducers/commentReducers'
 
 
 const reducer = combineReducers({
     questionList: questionListReducer,
     questionCreate: questionCreateReducer,
     questionDetails: questionDetailsReducer,
+    questionCommentCreate: questionCommentCreateReducer,
     userLogin: userLoginReducer, 
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
     userQuestions: userQuestionsReducer,
+    commentList: commentListReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo') 

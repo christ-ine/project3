@@ -29,11 +29,11 @@ const HeroSection = () => {
     // const questionList = useSelector(state => state.questionList)
     // const { loading, error, questions } = questionList
 
-    // useEffect(() => {
-    //     if (success) {
-    //         dispatch(listQuestions())
-    //     }
-    // }, [dispatch])
+    useEffect(() => {
+        
+            dispatch(listQuestions())
+        
+    }, [dispatch, success])
 
 
     const handleClose = () => setShow(false);

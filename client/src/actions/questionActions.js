@@ -8,7 +8,10 @@ import {
     QUESTION_CREATE_FAIL,
     QUESTION_DETAILS_REQUEST,
     QUESTION_DETAILS_SUCCESS,
-    QUESTION_DETAILS_FAIL
+    QUESTION_DETAILS_FAIL,
+    QUESTION_CREATE_COMMENT_REQUEST,
+    QUESTION_CREATE_COMMENT_SUCCESS,
+    QUESTION_CREATE_COMMENT_FAIL
 } from '../constants/questionConstants'
 
 export const listQuestions = () => async(dispatch) => {
@@ -92,4 +95,36 @@ export const listQuestionDetails = (id) => async(dispatch) => {
         })
     }
 
+}
+
+export const createQuestionComment = (QuestionId, comment) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: QUESTION_CREATE_COMMENT_REQUEST
+        })
+
+        const { userLogin: { userInfo } } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                
+            }
+        }
+
+        await axios.post(`/authenticated/postComment/${QuestionId}`, comment, config)
+
+        dispatch({
+            type: QUESTION_CREATE_COMMENT_SUCCESS,
+        })
+
+    } catch (error) {
+        dispatch({
+            type: QUESTION_CREATE_COMMENT_FAIL,
+            payload: 
+                error.response && error.response.data.message 
+                ? error.response.data.message 
+                : error.message,
+        })
+    }
 }

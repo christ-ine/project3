@@ -25,12 +25,13 @@ router.post('/postQuestion', function(req, res, next) {
     .catch((err) => res.status(422).json(err));
 });
 
-router.post('/postComment', function(req, res, next) {
+router.post('/postComment/:QuestionId', function(req, res, next) {
     // res.send('respond with a resource');
     db.Comment.create({
         comment: req.body.comment,
-        QuestionId: req.body.QuestionId,
-        UserId: req.body.UserId
+        QuestionId: req.params.QuestionId,
+        UserId: req.body.UserId,
+        userName: req.body.userName
     })
     .then((dbResponse) => { res.send("Comment posted!")})
     .catch((err) => {res.status(422).json(err);});
