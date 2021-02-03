@@ -12,7 +12,10 @@ import {
     USER_DETAILS_FAIL,
     USER_QUESTIONS_REQUEST,
     USER_QUESTIONS_SUCCESS,
-    USER_QUESTIONS_FAIL
+    USER_QUESTIONS_FAIL,
+    USER_COMMENTS_REQUEST,
+    USER_COMMENTS_SUCCESS,
+    USER_COMMENTS_FAIL
  } from '../constants/userConstants'
 
 export const login = (userName, password) => async (dispatch) => {
@@ -159,6 +162,41 @@ export const getUserQuestions = (id) => async (dispatch, getState) => {
     } catch (error) {
         dispatch({
             type: USER_QUESTIONS_FAIL,
+            payload: 
+                error.response && error.response.data.message 
+                ? error.response.data.message 
+                : error.message,
+        })
+    }
+}
+
+export const getUserComments = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: USER_COMMENTS_REQUEST
+        })
+
+        const { userLogin: {userInfo} } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/comments/getUserComments/${id}`, 
+            config
+        )
+
+        dispatch({
+            type: USER_COMMENTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: USER_COMMENTS_FAIL,
             payload: 
                 error.response && error.response.data.message 
                 ? error.response.data.message 

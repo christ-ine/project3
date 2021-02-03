@@ -11,12 +11,12 @@ const Comments = ({ comment }) => {
 
     
     function increment() {
-        API.likeComment(comment.id)
+        // API.likeComment(comment.id)
         setCount(prevCount => prevCount + 1)
     }
 
     function decrement() {
-        API.dislikeComment(comment.id)
+        // API.dislikeComment(comment.id)
         setCount(prevCount => prevCount - 1)
     }
 

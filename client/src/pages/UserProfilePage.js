@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import PlaceholderImg from '../images/profile-placeholder.png'
 import { Card, Row, Col, ListGroup } from 'react-bootstrap'
-import { getUserDetails, getUserQuestions } from '../actions/userActions'
+import { getUserDetails, getUserQuestions, getUserComments } from '../actions/userActions'
 
 const UserProfilePage = ({ match }) => {
     // const [profile, setProfile] = useState([])
@@ -18,7 +18,10 @@ const UserProfilePage = ({ match }) => {
     const userQuestions = useSelector(state => state.userQuestions)
     const { loading:loadingQuestions, error:errorQuestions, user:userPosts } = userQuestions
 
-    console.log(userPosts)
+    const userComments = useSelector(state => state.userComments)
+    const { loading:loadingComments, error:errorComments, user:userAnswers } = userComments
+
+    console.log(userAnswers)
 
     useEffect(() => {
         dispatch(getUserDetails(match.params.id))
@@ -26,6 +29,10 @@ const UserProfilePage = ({ match }) => {
 
     useEffect(() => {
         dispatch(getUserQuestions(match.params.id))
+    }, [match])
+
+    useEffect(() => {
+        dispatch(getUserComments(match.params.id))
     }, [match])
    
 
@@ -60,7 +67,7 @@ const UserProfilePage = ({ match }) => {
                                         justifyContent: 'space-between'
                                     }}
                                 >
-                                    <Card.Title><h2>{user.firstName} {user.lastName}</h2></Card.Title>
+                                    <Card.Title><h2>{user.firstName} {user.lastName} @{user.userName}</h2></Card.Title>
 
 
                                     {/* <Button variant="danger" size="sm" style={{ height: 'max-content' }} onClick={handleShow}>
@@ -172,15 +179,15 @@ const UserProfilePage = ({ match }) => {
                         <Card.Body>
                             <Card.Title style={{ textAlign: "center" }}><h3>Community Contributions</h3></Card.Title>
                             <Card.Text>
-                                {/* <ListGroup variant="flush">
-                                {userComments.map(userComment => (
+                                <ListGroup variant="flush">
+                                {userAnswers.map(userAnswer => (
                                     <ListGroup.Item>
-                                        <Link to={`/question/${userComment.QuestionId}`} style={{color: 'black'}}>
-                                        {userComment.comment}
+                                        <Link to={`/question/${userAnswer.QuestionId}`} style={{color: 'black'}}>
+                                        {userAnswer.comment}
                                         </Link>
                                     </ListGroup.Item>
                                     ))}
-                                </ListGroup> */}
+                                </ListGroup>
                             </Card.Text>
                         </Card.Body>
                     </Card>
