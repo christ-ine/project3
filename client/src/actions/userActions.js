@@ -251,38 +251,4 @@ export const updateMyAccount = (user) => async (dispatch, getState) => {
     }
 }
 
-export const getMyAccount = () => async (dispatch, getState) => {
-    try {
-        dispatch({
-            type: USER_MY_ACCOUNT_REQUEST
-        })
-
-        const { userLogin: {userInfo} } = getState()
-
-        const config = {
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }
-
-        const { data } = await axios.get(
-            `/users/myaccount`, 
-            config
-        )
-
-        dispatch({
-            type: USER_MY_ACCOUNT_SUCCESS,
-            payload: data
-        })
-
-    } catch (error) {
-        dispatch({
-            type: USER_MY_ACCOUNT_FAIL,
-            payload: 
-                error.response && error.response.data.message 
-                ? error.response.data.message 
-                : error.message,
-        })
-    }
-}
 

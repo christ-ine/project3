@@ -105,16 +105,3 @@ export const userUpdateAccountReducer = (state = { }, action) => {
             return state
     }
 }
-
-export const userMyAccountReducer = (state = { user: {} }, action) => {
-    switch (action.type) {
-        case USER_MY_ACCOUNT_REQUEST:
-            return { ...state, loading: true }
-        case USER_MY_ACCOUNT_SUCCESS:
-            return { loading: false, user: action.payload }
-        case USER_MY_ACCOUNT_FAIL:
-            return { loading: false, error: action.payload}
-        default: 
-            return state
-    }
-}

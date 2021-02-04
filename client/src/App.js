@@ -6,6 +6,7 @@ import QuestionPage from './pages/QuestionPage'
 import Header from './components/Header/Header'
 import UserProfilePage from './pages/UserProfilePage'
 import UserEditProfilePage from './pages/UserEditProfilePage'
+import SearchResults from './pages/SearchResults'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/question/:id" component={QuestionPage} />
         <Route path="/profile/:id" component={UserProfilePage} exact/>
         <Route path="/myprofile" component={UserEditProfilePage} exact/>
+        <Route path="/searchresults/:keyword" component={SearchResults} />
         <Route path='/' component={HomePage} exact/>
       </Router>
 

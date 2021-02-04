@@ -8,9 +8,14 @@ import {
     userQuestionsReducer,
     userCommentsReducer,
     userUpdateAccountReducer,
-    userMyAccountReducer
 } from './reducers/userReducers'
-import { questionListReducer, questionCreateReducer, questionDetailsReducer, questionCommentCreateReducer } from './reducers/questionReducers'
+import { 
+    questionListReducer, 
+    questionCreateReducer, 
+    questionDetailsReducer, 
+    questionCommentCreateReducer,
+    questionSearchReducer
+ } from './reducers/questionReducers'
 import { commentListReducer } from './reducers/commentReducers'
 
 
@@ -19,12 +24,12 @@ const reducer = combineReducers({
     questionCreate: questionCreateReducer,
     questionDetails: questionDetailsReducer,
     questionCommentCreate: questionCommentCreateReducer,
+    questionSearch: questionSearchReducer,
     userLogin: userLoginReducer, 
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
     userQuestions: userQuestionsReducer,
     userComments: userCommentsReducer,
-    userMyAccount: userMyAccountReducer,
     userUpdateAccount: userUpdateAccountReducer,
     commentList: commentListReducer,
 })
