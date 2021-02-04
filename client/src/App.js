@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import QuestionPage from './pages/QuestionPage'
 import Header from './components/Header/Header'
 import UserProfilePage from './pages/UserProfilePage'
+import UserEditProfilePage from './pages/UserEditProfilePage'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" component={LoginPage} exact/>
         <Route exact path="/question/:id" component={QuestionPage} />
         <Route path="/profile/:id" component={UserProfilePage} exact/>
+        <Route path="/myprofile" component={UserEditProfilePage} exact/>
         <Route path='/' component={HomePage} exact/>
       </Router>
 

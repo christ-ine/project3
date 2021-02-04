@@ -11,7 +11,7 @@ router.get('/getAll', function(req, res, next) {
 
 });
 
-router.get('/api', function(req, res, next) {
+router.get('/myaccount', function(req, res, next) {
     res.json(req.user);
 })
 
@@ -54,7 +54,9 @@ router.put('/changeUser', function(req, res, next) {
             userName : req.body.userName
         }
     })
-    .then(() => {res.send("User updated")})
+    .then(() => {
+        res.send("User updated");
+    })
     .catch((err) => res.send(422).json(err));
     
 });

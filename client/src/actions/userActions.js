@@ -15,7 +15,13 @@ import {
     USER_QUESTIONS_FAIL,
     USER_COMMENTS_REQUEST,
     USER_COMMENTS_SUCCESS,
-    USER_COMMENTS_FAIL
+    USER_COMMENTS_FAIL,
+    USER_UPDATE_ACCOUNT_REQUEST,
+    USER_UPDATE_ACCOUNT_SUCCESS,
+    USER_UPDATE_ACCOUNT_FAIL,
+    USER_MY_ACCOUNT_REQUEST,
+    USER_MY_ACCOUNT_SUCCESS,
+    USER_MY_ACCOUNT_FAIL
  } from '../constants/userConstants'
 
 export const login = (userName, password) => async (dispatch) => {
@@ -204,3 +210,79 @@ export const getUserComments = (id) => async (dispatch, getState) => {
         })
     }
 }
+
+
+export const updateMyAccount = (user) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: USER_UPDATE_ACCOUNT_REQUEST
+        })
+
+        const { userLogin: {userInfo} } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.put(`/users/changeUser`, user, config)
+
+        dispatch({
+            type: USER_UPDATE_ACCOUNT_SUCCESS,
+            payload: data
+        })
+
+        dispatch({
+            type: USER_LOGIN_SUCCESS,
+            payload: data,
+        })
+
+        localStorage.setItem('userInfo', JSON.stringify(data))
+
+    } catch (error) {
+        dispatch({
+            type: USER_UPDATE_ACCOUNT_FAIL,
+            payload: 
+                error.response && error.response.data.message 
+                ? error.response.data.message 
+                : error.message,
+        })
+    }
+}
+
+export const getMyAccount = () => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: USER_MY_ACCOUNT_REQUEST
+        })
+
+        const { userLogin: {userInfo} } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const { data } = await axios.get(
+            `/users/myaccount`, 
+            config
+        )
+
+        dispatch({
+            type: USER_MY_ACCOUNT_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: USER_MY_ACCOUNT_FAIL,
+            payload: 
+                error.response && error.response.data.message 
+                ? error.response.data.message 
+                : error.message,
+        })
+    }
+}
+
