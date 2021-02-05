@@ -6,6 +6,7 @@ import Questions from '../components/Questions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import HeroSection from '../components/HeroSection/index'
+import TopicList from '../components/TopicList'
 import { listQuestions } from '../actions/questionActions'
 
 
@@ -36,11 +37,18 @@ const HomePage = () => {
             ) :(
                 <>
                 <Row>
-                {questions.map(question => (
-                    <Col key ={question.id} sm={12} md={6} lg={4} xl={3}>
-                        <Questions question={question}/>
-                    </Col>
+                    <Col sm={8}>
+                    {questions.map(question => (
+                    // <Col key ={question.id} sm={12} md={6} lg={4} xl={3}>
+                        <Questions key ={question.id} question={question}/>
+                    // </Col>
                 ))}
+                    </Col>
+                    <Col sm={4}>
+                        
+                        <TopicList />
+                    </Col>
+                
             </Row>
             </>
             )}

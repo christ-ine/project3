@@ -14,7 +14,10 @@ import {
     QUESTION_CREATE_COMMENT_FAIL,
     QUESTION_SEARCH_REQUEST,
     QUESTION_SEARCH_SUCCESS,
-    QUESTION_SEARCH_FAIL
+    QUESTION_SEARCH_FAIL,
+    QUESTION_TOPIC_REQUEST,
+    QUESTION_TOPIC_SUCCESS,
+    QUESTION_TOPIC_FAIL
 } from '../constants/questionConstants'
 
 export const listQuestions = () => async(dispatch) => {
@@ -153,3 +156,26 @@ export const listQuestionSearch = (keyword) => async(dispatch) => {
     }
 
 }
+
+export const listQuestionTopic = (tag) => async(dispatch) => {
+    try {
+        dispatch({type: QUESTION_TOPIC_REQUEST})
+
+        const { data } = await axios.get(`/questions/topic/${tag}`)
+
+        dispatch({
+            type: QUESTION_TOPIC_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: QUESTION_TOPIC_FAIL,
+            payload: 
+                error.response && error.response.data.message 
+                ? error.response.data.message 
+                : error.message,
+        })
+    }
+
+}
+

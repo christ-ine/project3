@@ -7,6 +7,8 @@ import Header from './components/Header/Header'
 import UserProfilePage from './pages/UserProfilePage'
 import UserEditProfilePage from './pages/UserEditProfilePage'
 import SearchResults from './pages/SearchResults'
+import TopicResults from './pages/TopicResults'
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/profile/:id" component={UserProfilePage} exact/>
         <Route path="/myprofile" component={UserEditProfilePage} exact/>
         <Route path="/searchresults/:keyword" component={SearchResults} />
+        <Route path="/topic/:topic" component={TopicResults} />
         <Route path='/' component={HomePage} exact/>
       </Router>
 

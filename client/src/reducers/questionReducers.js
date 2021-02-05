@@ -15,7 +15,10 @@ import {
     QUESTION_CREATE_COMMENT_RESET,
     QUESTION_SEARCH_REQUEST,
     QUESTION_SEARCH_SUCCESS,
-    QUESTION_SEARCH_FAIL
+    QUESTION_SEARCH_FAIL,
+    QUESTION_TOPIC_REQUEST,
+    QUESTION_TOPIC_SUCCESS,
+    QUESTION_TOPIC_FAIL
 } from "../constants/questionConstants"
 
 export const questionListReducer = (state = {questions: [] }, action) => {
@@ -91,6 +94,24 @@ export const questionSearchReducer = (state = {questions: [] }, action) => {
                 // page: action.payload.page
             }
         case QUESTION_SEARCH_FAIL:
+            return { loading: false, error: action.payload}
+        default:
+            return state
+    }
+}
+
+export const questionTopicReducer = (state = {questions: [] }, action) => {
+    switch (action.type) {
+        case QUESTION_TOPIC_REQUEST:
+            return { loading: true, questions: [] }
+        case QUESTION_TOPIC_SUCCESS:
+            return { 
+                loading: false, 
+                questions: action.payload, 
+                // pages: action.payload.pages,
+                // page: action.payload.page
+            }
+        case QUESTION_TOPIC_FAIL:
             return { loading: false, error: action.payload}
         default:
             return state

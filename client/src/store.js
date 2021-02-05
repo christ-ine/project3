@@ -14,7 +14,8 @@ import {
     questionCreateReducer, 
     questionDetailsReducer, 
     questionCommentCreateReducer,
-    questionSearchReducer
+    questionSearchReducer,
+    questionTopicReducer
  } from './reducers/questionReducers'
 import { commentListReducer } from './reducers/commentReducers'
 
@@ -25,6 +26,7 @@ const reducer = combineReducers({
     questionDetails: questionDetailsReducer,
     questionCommentCreate: questionCommentCreateReducer,
     questionSearch: questionSearchReducer,
+    questionTopic: questionTopicReducer,
     userLogin: userLoginReducer, 
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
