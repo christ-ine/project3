@@ -53,7 +53,7 @@ const UserEditProfilePage = () => {
     }, [dispatch])
 
     const submitHandler = (e) => {
-        // e.preventDefault()
+        e.preventDefault()
         dispatch(updateMyAccount({
             userName: userInfo.user.userName,
             firstName,
