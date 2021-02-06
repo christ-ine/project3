@@ -154,7 +154,7 @@ export const getUserQuestions = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/Questions/${id}`, 
+            `/questions/UserQuestions/${id}`, 
             config
         )
 
