@@ -204,7 +204,7 @@ const UserEditProfilePage = () => {
                             <Card.Text>
                                 <ListGroup variant="flush">
                                     {userPosts.map(userPost => (
-                                    <ListGroup.Item>
+                                    <ListGroup.Item key={userPost.id}>
                                         <Link to={`/question/${userPost.id}`} style={{color: 'black'}}>
                                         {userPost.question}
                                         </Link>
@@ -222,7 +222,7 @@ const UserEditProfilePage = () => {
                             <Card.Text>
                                 <ListGroup variant="flush">
                                 {userAnswers.map(userAnswer => (
-                                    <ListGroup.Item>
+                                    <ListGroup.Item key={userAnswer.id}>
                                         <Link to={`/question/${userAnswer.QuestionId}`} style={{color: 'black'}}>
                                         {userAnswer.comment}
                                         </Link>
