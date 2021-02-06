@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col } from 'react-bootstrap'
+import { Container, Col, Row } from 'react-bootstrap'
 import Questions from '../components/Questions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -26,16 +26,20 @@ const HomePage = () => {
         dispatch(listQuestions())
     }, [dispatch])
 
+    
+    
+
     return (
         <>
             <HeroSection />
         
-            <h1>Latest Posts</h1>
+            <Container>
             {loading ? (<Loader />)
             : error ? (
             <Message variant='danger'>{error}</Message>
             ) :(
                 <>
+                    <h3 style={{paddingTop: '20px', paddingBottom: '10px'}}>Latest Posts</h3>
                 <Row>
                     <Col sm={8}>
                     {questions.map(question => (
@@ -51,8 +55,9 @@ const HomePage = () => {
                 
             </Row>
             </>
-            )}
             
+            )}
+            </Container>
         </>
     )
 }

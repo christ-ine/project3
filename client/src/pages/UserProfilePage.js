@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import PlaceholderImg from '../images/profile-placeholder.png'
-import { Card, Row, Col, ListGroup } from 'react-bootstrap'
+import { Card, Container, Row, Col, ListGroup } from 'react-bootstrap'
 import { getUserDetails, getUserQuestions, getUserComments } from '../actions/userActions'
 
 const UserProfilePage = ({ match }) => {
@@ -38,6 +38,7 @@ const UserProfilePage = ({ match }) => {
 
     return (
         <div>
+            <Container>
             <Row>
                 <Col sm={12}>
                     <Card style={{
@@ -157,11 +158,14 @@ const UserProfilePage = ({ match }) => {
 
             <Row>
                 <Col sm={6}>
-                    <Card>
+                    {/* <Card>
                         <Card.Body>
                             <Card.Title style={{ textAlign: "center" }}><h3>Questions</h3></Card.Title>
-                            <Card.Text>
-                                <ListGroup variant="flush">
+                            <Card.Text> */}
+                                <ListGroup >
+                                    <ListGroup.Item style={{ textAlign: "center" }}>
+                                        <h3>Questions</h3>
+                                    </ListGroup.Item>
                                     {userPosts.map(userPost => (
                                     <ListGroup.Item>
                                         <Link to={`/question/${userPost.id}`} style={{color: 'black'}}>
@@ -170,9 +174,9 @@ const UserProfilePage = ({ match }) => {
                                     </ListGroup.Item>
                                     ))}
                                 </ListGroup>
-                            </Card.Text>
+                            {/* </Card.Text>
                         </Card.Body>
-                    </Card>
+                    </Card> */}
                 </Col>
                 <Col sm={6}>
                     <Card>
@@ -193,6 +197,7 @@ const UserProfilePage = ({ match }) => {
                     </Card>
                 </Col>
             </Row>
+            </Container>
         </div>
     )
 }

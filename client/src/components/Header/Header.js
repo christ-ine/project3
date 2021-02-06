@@ -19,7 +19,7 @@ const Header = () => {
 
     return (
         <header>
-            <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
+            <Navbar variant='dark' expand="lg" collapseOnSelect style={{backgroundColor: '#01BF71'}}>
                 <Container>
                     <LinkContainer to='/'>
                         <Navbar.Brand>PawPals</Navbar.Brand>
@@ -29,9 +29,9 @@ const Header = () => {
                         <Route render={({ history }) => <SearchBox history={history}/>} />
                         <Nav className="ml-auto">
                             {userInfo ? (
-                                <NavDropdown title={userInfo.user.userName} id='username'>
+                                <NavDropdown title={userInfo.user.userName} id='username' active style={{fontSize: "17px"}}>
                                     <LinkContainer to='/myprofile'>
-                                        <NavDropdown.Item>Profile</NavDropdown.Item>
+                                        <NavDropdown.Item >Profile</NavDropdown.Item>
                                     </LinkContainer>
                                     <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
                                 </NavDropdown>

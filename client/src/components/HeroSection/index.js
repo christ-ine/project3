@@ -6,9 +6,8 @@ import { Button } from '../ButtonElement'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
 import { HeroContainer, HeroBg, ImageBg, HeroContent, HeroH1, HeroP, HeroBtnWrapper, QuestionEmpty, QuestionFilled } from './HeroElements';
-import { createQuestion } from '../../actions/questionActions'
+import { createQuestion, listQuestions } from '../../actions/questionActions'
 import { QUESTION_CREATE_RESET } from '../../constants/questionConstants'
-import { listQuestions } from '../../actions/questionActions'
 
 const HeroSection = () => {
     const [hover, setHover] = useState(false)
@@ -44,6 +43,7 @@ const HeroSection = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        console.log("hiiii")
         dispatch(createQuestion({
             userName: userInfo.user.userName,
             question: title,

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import PlaceholderImg from '../images/profile-placeholder.png'
-import { Button, Card, Form, Modal, Row, Col, ListGroup } from 'react-bootstrap'
+import { Button, Card, Container, Form, Modal, Row, Col, ListGroup } from 'react-bootstrap'
 import { updateMyAccount, getUserDetails, getUserQuestions, getUserComments } from '../actions/userActions'
 
 const UserEditProfilePage = () => {
@@ -67,6 +67,7 @@ const UserEditProfilePage = () => {
 
     return (
         <div>
+            <Container>
             <Row>
                 <Col sm={12}>
                     <Card style={{
@@ -99,7 +100,7 @@ const UserEditProfilePage = () => {
                                     <Card.Title><h2>{user.firstName} {user.lastName} @{user.userName}</h2></Card.Title>
 
 
-                                    <Button variant="danger" size="sm" style={{ height: 'max-content' }} onClick={handleShow}>
+                                    <Button className="ml-right" variant="danger" size="medium" style={{ height: 'max-content'}} onClick={handleShow}>
                         
                                         Edit Profile
                                     </Button>
@@ -233,6 +234,7 @@ const UserEditProfilePage = () => {
                     </Card>
                 </Col>
             </Row>
+            </Container>
         </div>
     )
 }
