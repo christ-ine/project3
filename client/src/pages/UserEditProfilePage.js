@@ -42,7 +42,7 @@ const UserEditProfilePage = () => {
         setLastName(user.LastName)
         setUserBio(user.UserBio)
         setPetBio(user.PetBio)
-    }, [dispatch])
+    }, [dispatch, successUpdate])
 
     useEffect(() => {
         dispatch(getUserQuestions(userInfo.user.id))
@@ -62,6 +62,8 @@ const UserEditProfilePage = () => {
             userBio
             
         }))
+        // dispatch(getUserDetails(userInfo.user.id))
+        
     }
    
 
@@ -165,7 +167,7 @@ const UserEditProfilePage = () => {
 
                                             </Modal.Body>
                                             <Modal.Footer>
-                                                <Button variant="primary" type="submit">
+                                                <Button variant="primary" type="submit" onClick={() => setShow(false)}>
                                                     Submit
                                                 </Button>
                                             </Modal.Footer>
