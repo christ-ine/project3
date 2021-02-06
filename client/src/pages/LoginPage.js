@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Card, Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -31,6 +31,8 @@ const LoginPage = ({ location, history }) => {
 
     return (
         <FormContainer>
+            <Card style={{display: "flex", justifyContent: "center", width: "500px", marginTop: "50px" }}>
+            <Card.Body>
             <h1>Sign In</h1>
             {error && <Message variant='danger'> {error}</Message>}
             {loading && <Loader />}
@@ -55,16 +57,18 @@ const LoginPage = ({ location, history }) => {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' vairant='primary'>
+                <Button type='submit' vairant='success'>
                     Sign In
                 </Button>
             </Form>
             <Row className='py-3'>
                 <Col>
-                    New Customer? <Link to={redirect ? `/register?redirect=${redirect}`: `/register`}>Register</Link>
+                    New user? <Link to={redirect ? `/register?redirect=${redirect}`: `/register`}>Register</Link>
                 </Col>
 
             </Row>
+            </Card.Body>
+            </Card>
         </FormContainer>
     )
 }

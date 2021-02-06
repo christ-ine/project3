@@ -29,15 +29,18 @@ const Header = () => {
                         <Route render={({ history }) => <SearchBox history={history}/>} />
                         <Nav className="ml-auto">
                             {userInfo ? (
-                                <NavDropdown title={userInfo.user.userName} id='username' active style={{fontSize: "17px"}}>
+                                <NavDropdown title={userInfo.user.userName} id='userName' active style={{fontSize: "17px"}}>
                                     <LinkContainer to='/myprofile'>
                                         <NavDropdown.Item >Profile</NavDropdown.Item>
                                     </LinkContainer>
                                     <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
                                 </NavDropdown>
-                            ): <LinkContainer to = '/login'>
-                            <Nav.Link>Sign In <i className='fas fa-user'></i></Nav.Link>
-                        </LinkContainer>}
+                            ): <><LinkContainer to = '/login'>
+                            <Nav.Link active><h6>Sign In</h6> </Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to = '/register'>
+                        <Nav.Link active><h6>Register</h6> </Nav.Link>
+                    </LinkContainer> </>}
     
                         </Nav>
 

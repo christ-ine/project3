@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import QuestionPage from './pages/QuestionPage'
@@ -15,6 +16,7 @@ function App() {
     <div>
       <Router>
         <Header />
+        <Route path="/register" component={RegisterPage} exact/>
         <Route path="/login" component={LoginPage} exact/>
         <Route exact path="/question/:id" component={QuestionPage} />
         <Route path="/profile/:id" component={UserProfilePage} exact/>
