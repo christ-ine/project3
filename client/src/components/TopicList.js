@@ -44,6 +44,11 @@ const TopicList = ({ history }) => {
                     <h5>Exercise</h5>
                 </Link>
             </ListGroup.Item>
+            <ListGroup.Item className="topic__list">
+                <Link to={`/topic/behavioral training`} style={{ textDecoration: "none", color: 'black' }}>
+                    <h5>Exercise</h5>
+                </Link>
+            </ListGroup.Item>
             <ListGroup.Item className="topic__list" >
                 <Link to={`/topic/toys`} style={{ textDecoration: "none", color: 'black' }}>
                     <h5>Toys</h5>
@@ -55,27 +60,27 @@ const TopicList = ({ history }) => {
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
-                <Link to={`/topic/small animals`} style={{ textDecoration: "none", color: 'black' }}>
+                <Link to={`/topic/sleeping`} style={{ textDecoration: "none", color: 'black' }}>
                     <h5>Small Animals</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
-                <Link to={`/topic/large animals`} style={{ textDecoration: "none", color: 'black' }}>
+                <Link to={`/topic/socializing`} style={{ textDecoration: "none", color: 'black' }}>
                     <h5>Large Animals</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
-                <Link to={`/topic/reptiles`} style={{ textDecoration: "none", color: 'black' }}>
+                <Link to={`/topic/accessories`} style={{ textDecoration: "none", color: 'black' }}>
                     <h5>Reptiles</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
-                <Link to={`/topic/amphibians`} style={{ textDecoration: "none", color: 'black' }}>
+                <Link to={`/topic/health`} style={{ textDecoration: "none", color: 'black' }}>
                     <h5>Amphibians</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
-                <Link to={`/topic/exotic pets`} style={{ textDecoration: "none", color: 'black' }}>
+                <Link to={`/topic/misc`} style={{ textDecoration: "none", color: 'black' }}>
                     <h5>Exotic Pets</h5>
                 </Link>
             </ListGroup.Item>

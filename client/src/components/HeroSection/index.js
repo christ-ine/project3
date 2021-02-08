@@ -94,7 +94,8 @@ const HeroSection = () => {
                                     type="text"
                                     placeholder='Enter question'
                                     value={title}
-                                    onChange={(e) => setTitle(e.target.value)} />
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    required />
                             </Form.Group>
                             <Form.Group controlId="title">
                                 <Form.Label>Anymore information you would like to add?</Form.Label>
@@ -103,26 +104,28 @@ const HeroSection = () => {
                                     rows={3}
                                     placeholder='Enter Details'
                                     value={content}
-                                    onChange={(e) => setContent(e.target.value)} />
+                                    onChange={(e) => setContent(e.target.value)}
+                                    required />
                             </Form.Group>
                             <Form.Group controlId="exampleForm.ControlSelect1">
                                 <Form.Label>Topic</Form.Label>
                                 <Form.Control
                                     as="select"
                                     value={topic}
-                                    onChange={(e) => setTopic(e.target.value)} >
+                                    onChange={(e) => setTopic(e.target.value)}
+                                    required >
                                     <option>Select a topic</option>
                                     <option>Feeding</option>
                                     <option>Potty Training</option>
                                     <option>Exercise</option>
-                                    <option>Training</option>
+                                    <option>Behavioral Training</option>
                                     <option>Toys</option>
                                     <option>Housing</option>
-                                    <option>Small Animals</option>
-                                    <option>Large Animals</option>
-                                    <option>Reptiles</option>
-                                    <option>Amphibians</option>
-                                    <option>Exotic Pets</option>
+                                    <option>Sleeping</option>
+                                    <option>Socializing</option>
+                                    <option>Accessories</option>
+                                    <option>Health</option>
+                                    <option>Misc</option>
                                 </Form.Control>
                             </Form.Group>
 

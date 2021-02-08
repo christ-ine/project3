@@ -10,11 +10,11 @@ module.exports = function(sequelize, DataTypes) {
 
     topic: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false,
     },
 
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
 
