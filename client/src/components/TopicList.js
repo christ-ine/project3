@@ -46,7 +46,7 @@ const TopicList = ({ history }) => {
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
                 <Link to={`/topic/behavioral training`} style={{ textDecoration: "none", color: 'black' }}>
-                    <h5>Exercise</h5>
+                    <h5>Behavioral Training</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list" >
@@ -61,27 +61,27 @@ const TopicList = ({ history }) => {
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
                 <Link to={`/topic/sleeping`} style={{ textDecoration: "none", color: 'black' }}>
-                    <h5>Small Animals</h5>
+                    <h5>Sleeping</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
                 <Link to={`/topic/socializing`} style={{ textDecoration: "none", color: 'black' }}>
-                    <h5>Large Animals</h5>
+                    <h5>Socializing</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
                 <Link to={`/topic/accessories`} style={{ textDecoration: "none", color: 'black' }}>
-                    <h5>Reptiles</h5>
+                    <h5>Accessories</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
                 <Link to={`/topic/health`} style={{ textDecoration: "none", color: 'black' }}>
-                    <h5>Amphibians</h5>
+                    <h5>Health</h5>
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className="topic__list">
                 <Link to={`/topic/misc`} style={{ textDecoration: "none", color: 'black' }}>
-                    <h5>Exotic Pets</h5>
+                    <h5>Misc</h5>
                 </Link>
             </ListGroup.Item>
 
