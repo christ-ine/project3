@@ -158,14 +158,11 @@ const UserProfilePage = ({ match }) => {
 
             <Row>
                 <Col sm={6}>
-                    {/* <Card>
+                    <Card>
                         <Card.Body>
                             <Card.Title style={{ textAlign: "center" }}><h3>Questions</h3></Card.Title>
-                            <Card.Text> */}
-                                <ListGroup >
-                                    <ListGroup.Item style={{ textAlign: "center" }}>
-                                        <h3>Questions</h3>
-                                    </ListGroup.Item>
+                            <Card.Text>
+                                <ListGroup variant="flush">
                                     {userPosts.map(userPost => (
                                     <ListGroup.Item key={userPost.id}>
                                         <Link to={`/question/${userPost.id}`} style={{color: 'black'}}>
@@ -174,9 +171,9 @@ const UserProfilePage = ({ match }) => {
                                     </ListGroup.Item>
                                     ))}
                                 </ListGroup>
-                            {/* </Card.Text>
+                            </Card.Text>
                         </Card.Body>
-                    </Card> */}
+                    </Card>
                 </Col>
                 <Col sm={6}>
                     <Card>

@@ -102,7 +102,7 @@ const UserEditProfilePage = () => {
                                     <Card.Title><h2>{user.firstName} {user.lastName} @{user.userName}</h2></Card.Title>
 
 
-                                    <Button className="ml-right" variant="danger" size="medium" style={{ height: 'max-content'}} onClick={handleShow}>
+                                    <Button className="ml-right" variant="danger" size="medium" style={{ height: 'max-content', marginLeft: '20px'}} onClick={handleShow}>
                         
                                         Edit Profile
                                     </Button>
