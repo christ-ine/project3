@@ -2,7 +2,7 @@
 
 ## Overview
 
-https://pawpals49.herokuapp.com/
+https://pawpals100.herokuapp.com/
 
 This application serves a social media site where pet owners can post their pet related questions for the online community to help with and answer other users questions
 
@@ -35,6 +35,7 @@ Each user also has their own profile in where they can display their name and ad
 ![Ask Question](screenshots/Ask.png)
 ![Question Page](screenshots/Question.png)
 ![User Profile](screenshots/Profile.png)
+![My Profile](screenshots/MyAccount.png)
 ![Edit Profile](screenshots/EditProfile.png)
 
 
